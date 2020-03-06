@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="389d6c47-ddce-4f3b-94bd-6f9e0a066b94" name="Default Changelist" comment="cccv">
-      <change afterPath="$PROJECT_DIR$/.gitignorevv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignorevv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,10 +52,10 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/mybatis" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/mybatis" />
     </key>
   </component>
@@ -156,7 +157,7 @@
       <updated>1582874415287</updated>
       <workItem from="1582874419448" duration="36545000" />
       <workItem from="1583142684220" duration="4464000" />
-      <workItem from="1583480838731" duration="1773000" />
+      <workItem from="1583480838731" duration="2570000" />
     </task>
     <task id="LOCAL-00001" summary="cccv">
       <created>1583482300839</created>
