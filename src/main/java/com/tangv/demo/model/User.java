@@ -1,8 +1,12 @@
 package com.tangv.demo.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class User {
+    @Id
     private Integer userId;
 
     private String userName;
@@ -24,6 +28,16 @@ public class User {
     private Date userLastLoginTime;
 
     private Integer userStatus;
+
+    private String authority;
+
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
+    }
 
     public User(Integer userId, String userName, String userPass, String userNickname, String userEmail, String userUrl, String userAvatar, String userLastLoginIp, Date userRegisterTime, Date userLastLoginTime, Integer userStatus) {
         this.userId = userId;
