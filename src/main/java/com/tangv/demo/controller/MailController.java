@@ -18,8 +18,9 @@ public class MailController {
     private MailService mailService;
 
     @PostMapping("/mail")
-    //  @Scheduled(cron = "*/6 * * * * ?")
+    //@Scheduled(cron = "*/6 * * * * ?")
     public void sendMail() throws Exception{
-        mailService.sendSimpleMessage("2328192991@qq.com","百万好","hello");
+        System.out.println("发送了一条邮件");
+        mailService.sendSimpleMessage("354266741@qq.com","张总好","hello");
     }
 }

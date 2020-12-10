@@ -1,5 +1,7 @@
 package com.tangv.demo.model;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
@@ -9,9 +11,9 @@ public class User {
     @Id
     private Integer userId;
 
-    private String userName;
+    private String username;
 
-    private String userPass;
+    private String password;
 
     private String userNickname;
 
@@ -31,32 +33,6 @@ public class User {
 
     private String authority;
 
-    public String getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(String authority) {
-        this.authority = authority;
-    }
-
-    public User(Integer userId, String userName, String userPass, String userNickname, String userEmail, String userUrl, String userAvatar, String userLastLoginIp, Date userRegisterTime, Date userLastLoginTime, Integer userStatus) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userPass = userPass;
-        this.userNickname = userNickname;
-        this.userEmail = userEmail;
-        this.userUrl = userUrl;
-        this.userAvatar = userAvatar;
-        this.userLastLoginIp = userLastLoginIp;
-        this.userRegisterTime = userRegisterTime;
-        this.userLastLoginTime = userLastLoginTime;
-        this.userStatus = userStatus;
-    }
-
-    public User() {
-        super();
-    }
-
     public Integer getUserId() {
         return userId;
     }
@@ -65,20 +41,20 @@ public class User {
         this.userId = userId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUserPass() {
-        return userPass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPass(String userPass) {
-        this.userPass = userPass == null ? null : userPass.trim();
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUserNickname() {
@@ -86,7 +62,7 @@ public class User {
     }
 
     public void setUserNickname(String userNickname) {
-        this.userNickname = userNickname == null ? null : userNickname.trim();
+        this.userNickname = userNickname;
     }
 
     public String getUserEmail() {
@@ -94,7 +70,7 @@ public class User {
     }
 
     public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail == null ? null : userEmail.trim();
+        this.userEmail = userEmail;
     }
 
     public String getUserUrl() {
@@ -102,7 +78,7 @@ public class User {
     }
 
     public void setUserUrl(String userUrl) {
-        this.userUrl = userUrl == null ? null : userUrl.trim();
+        this.userUrl = userUrl;
     }
 
     public String getUserAvatar() {
@@ -110,7 +86,7 @@ public class User {
     }
 
     public void setUserAvatar(String userAvatar) {
-        this.userAvatar = userAvatar == null ? null : userAvatar.trim();
+        this.userAvatar = userAvatar;
     }
 
     public String getUserLastLoginIp() {
@@ -118,7 +94,7 @@ public class User {
     }
 
     public void setUserLastLoginIp(String userLastLoginIp) {
-        this.userLastLoginIp = userLastLoginIp == null ? null : userLastLoginIp.trim();
+        this.userLastLoginIp = userLastLoginIp;
     }
 
     public Date getUserRegisterTime() {
@@ -143,5 +119,13 @@ public class User {
 
     public void setUserStatus(Integer userStatus) {
         this.userStatus = userStatus;
+    }
+
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 }

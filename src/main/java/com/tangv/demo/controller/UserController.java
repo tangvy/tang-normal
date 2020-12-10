@@ -1,17 +1,14 @@
 package com.tangv.demo.controller;
 
+import cn.hutool.core.lang.Snowflake;
+import cn.hutool.core.util.IdUtil;
 import com.tangv.demo.dao.UserMapper;
 import com.tangv.demo.model.User;
-import com.tangv.demo.model.UserExample;
 import com.tangv.demo.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,6 +21,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserMapper userMapper;
@@ -34,9 +32,9 @@ public class UserController {
 
     @PostMapping("/login")
     public User login(@RequestBody User user,HttpServletRequest request){
-        User user1 = userService.getUser(user.getUserName());
+        User user1 = userService.getUser(user.getUsername());
         if (user1 != null){
-            if (!user.getUserPass().equals(user1.getUserPass())){
+            if (!user.getPassword().equals(user1.getPassword())){
                 log.error("用户名或密码错误");
                 throw new RuntimeException("用户名或密码错误");
             }
@@ -49,12 +47,22 @@ public class UserController {
         return user1;
     }
 
+    @RequestMapping(value = "success",produces = {"text/plain;charset=UTF-8"})
+    public String loginSuccess() {
+        return userService.getUsername()+"登陆成功";
+    }
+
+    /*public static void main(String[] args) {
+        Snowflake snowflake = IdUtil.createSnowflake(2, 4);
+        System.out.println(snowflake.nextId());
+    }*/
+
 
     @RequestMapping("/testSession")
     public User loginWithSession(HttpServletRequest request,HttpServletResponse response){
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
-        User user1 = userService.getUser(user.getUserName());
+        User user1 = userService.getUser(user.getUsername());
         return user1;
     }
 
@@ -76,7 +84,7 @@ public class UserController {
 
 
     @PostMapping("/set")
-    public String set(){
+    public String insertData(){
         redisTemplate.opsForValue().set("球星","詹姆斯");
         return redisTemplate.opsForValue().get("球星");
     }

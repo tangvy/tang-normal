@@ -40,4 +40,13 @@ public class Tag {
     public void setTagDescription(String tagDescription) {
         this.tagDescription = tagDescription == null ? null : tagDescription.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Tag{" +
+                "tagId=" + tagId +
+                ", tagName='" + tagName + '\'' +
+                ", tagDescription='" + tagDescription + '\'' +
+                '}';
+    }
 }
